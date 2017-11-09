@@ -1,0 +1,2 @@
+# Essential-JS-Patterns
+- JavaScript design patterns examples provided from [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/) by Copyright © Addy Osmani 2017.
