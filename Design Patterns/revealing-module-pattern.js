@@ -1,3 +1,4 @@
+//	Similar to module pattern, instead of just returning the actual public functions you return public methods as pointers to private methods.
 let myRevealingModule = (function() {
 
 	let privateVarName = "[Placeholder of a name]";
@@ -74,4 +75,33 @@ console.log(myRevealingModuleCounter.count());	// 0
 
 /*A&D*/
 // Advantages: Syntax more consistent. More clear at the end of the module which of our functions and variables may be acceesed publicly. (Readablity).
-// Disadvantages: Modules are more fragile, since private functions refering to public functions cannot be overriden.
+// Disadvantages: Modules are more fragile, since overriding or patching public methods reffering to private methods (behaivor).
+
+let revealingModulePattern = (function(){
+  
+  // Private vars and functions
+  let _welcome = "Welcome";
+  
+  var _getWelcome = function(){
+    return _welcome;
+  };
+  
+  var welcomeSomeone = function(name){
+    console.log(_getWelcome() + " " + name);
+  };
+  
+  // Public vars and functions
+  return {
+    sayWelcome: welcomeSomeone
+  };
+})();
+
+revealingModulePattern.sayWelcome("Jimmy");
+
+// Trying to override/patch sayWelcome doesn't work since welcomeSomeone is refrencing a private function (_getWelcome)
+
+revealingModulePattern.sayWelcome = function(name){
+  console.log(_getWelcome() + " to the store! " + name);
+};
+
+revealingModulePattern.sayWelcome("Ted");
