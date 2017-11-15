@@ -1,31 +1,36 @@
 let myRevealingModule = (function() {
 
-	let privateVar = "Internal Variable";
-	let publicVar = "Hello!";
+	let privateVarName = "[Placeholder of a name]";
+	let publicVarGreetting = "Hello!";
 
 	function privateFunction() {
-		console.log(`${publicVar} ${privateVar}`);
+		console.log(`${privateVarName}`);
 	}
 
 	function publicSetName(strName) {
-		privateVar = strName;
+		privateVarName = strName;
 	}
 
 	function publicGetName() {
 		privateFunction();
 	}
 
+	function publicGreetingName() {
+		console.log(`${publicVarGreetting} ${privateVarName}`);
+	}
+
 	return {
 		setName: publicSetName,
-		greeting: publicVar,
-		getName: publicGetName
+		getName: publicGetName,
+		greeting: publicVarGreetting,
+		greetingName: publicGreetingName
 	};
 
 })();
 
-myRevealingModule.setName("Hector");
-myRevealingModule.getName();
-console.log(myRevealingModule.greeting);
+myRevealingModule.setName("Hector");	
+console.log(myRevealingModule.greeting);	// Hello!
+myRevealingModule.greetingName(); // Hello! Hector
 
 let myRevealingModuleCounter = (function () {
 	let privateCounter = 0;
@@ -62,7 +67,11 @@ let myRevealingModuleCounter = (function () {
 
 console.log(myRevealingModuleCounter.privateCounter); // undefined, not exposed
 myRevealingModuleCounter.start();
-myRevealingModuleCounter.start();
+myRevealingModuleCounter.publicIncrement();
 console.log(myRevealingModuleCounter.count());	// 2
 myRevealingModuleCounter.reset();
 console.log(myRevealingModuleCounter.count());	// 0
+
+/*A&D*/
+// Advantages: Syntax more consistent. More clear at the end of the module which of our functions and variables may be acceesed publicly. (Readablity).
+// Disadvantages: Modules are more fragile, since private functions refering to public functions cannot be overriden.
