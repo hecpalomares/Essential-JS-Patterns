@@ -37,3 +37,45 @@ console.log(carManager.execute("requestInfo", "Audi", 98));
 console.log(carManager.execute("calculateTax", "Audi", 40000));
 console.log(carManager.execute("newMethodNotAtCarManager", "Mazda", 45));	//	undefined
 })();
+
+
+/*Another Command Pattern example*/
+(function() {
+	function Basket() {
+		this.myBasket = [];
+	}
+
+	Basket.prototype = {
+		do: function(name) {
+			//	getting the name of the function along with data needed for the methods
+			let args = Array.prototype.slice.call(arguments, 1);
+			let fnName = '_' + name;
+			//	Verify it exist the methods that we are trying to 'do'(execute)
+			if(this[fnName]){
+				this[fnName].apply(this, args);
+			}
+		},
+		//	Declaring the private methods
+		_getMyBasket: function() {
+			console.log(this.myBasket);
+		},
+		_add: function(item) {
+			this.myBasket.push(item);
+		},
+		_remove: function(item) {
+			this.myBasket.splice(this.myBasket.indexOf(item), 1);
+		}
+	};
+
+	let b = new Basket;
+	b.do("add", "apple");
+	b.do("add", "eggs");
+	b.do("add", "milks");
+
+	b.do("getMyBasket");
+
+	b.do("remove", "eggs");
+
+	b.do("getMyBasket");
+
+})();
