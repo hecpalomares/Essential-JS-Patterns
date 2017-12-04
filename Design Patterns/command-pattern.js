@@ -78,4 +78,4 @@ console.log(carManager.execute("newMethodNotAtCarManager", "Mazda", 45));	//	und
 
 	b.do("getMyBasket");
 
-})();
+}());
