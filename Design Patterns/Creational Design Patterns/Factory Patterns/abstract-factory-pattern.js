@@ -18,6 +18,23 @@ function Truck(options) {
 	this.color = options.color || "white"; 
 }
 
+//	Implement functions to the constructor
+Car.prototype.drive = function() {
+	return console.log("I'm a car and I'm driving");
+}
+
+Car.prototype.breakDown = function() {
+	return console.log("I'm breakdown, please repair at nearest car shop");
+}
+
+Truck.prototype.drive = function() {
+	return console.log("I'm a truck and I'm driving");
+}
+
+Truck.prototype.breakDown = function() {
+	return console.log("I'm breakdown, please repair at nearest truck shop");
+}
+
 let abstractVehicleFactory = (function() {
 	
 	// Storage for our vehicle types
@@ -39,22 +56,6 @@ let abstractVehicleFactory = (function() {
 		}
 	};
 })();
-
-Car.prototype.drive = function() {
-	return console.log("I'm a car and I'm driving");
-}
-
-Car.prototype.breakDown = function() {
-	return console.log("I'm breakdown, please repair at nearest car shop");
-}
-
-Truck.prototype.drive = function() {
-	return console.log("I'm a truck and I'm driving");
-}
-
-Truck.prototype.breakDown = function() {
-	return console.log("I'm breakdown, please repair at nearest truck shop");
-}
 
 abstractVehicleFactory.registerVehicle( "car", Car);
 abstractVehicleFactory.registerVehicle( "truck", Truck);

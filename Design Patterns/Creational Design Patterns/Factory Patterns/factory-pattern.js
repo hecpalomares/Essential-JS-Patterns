@@ -1,4 +1,5 @@
 //	Factory create objects without the constructor. It provides a generic interface for creating objects.
+//	Simple explanation: Factories are functions that create and return objects.
 
 //	Constructor for defining new cars
 function Car(options) {
@@ -66,7 +67,7 @@ TruckFactory.prototype.vehicleClass = Truck;
 let truckFactory = new TruckFactory();
 let myTruck2 = truckFactory.createVehicle({state: "old and rusty", color: "white", wheelsize: "biiiiiig"});
 
-console.log(myTruck2 instanceof Truck);	// true (line 60)
+console.log(myTruck2 instanceof Truck);	// true (line 65)
 console.log(myTruck2);
 
 /*Advantages*/
