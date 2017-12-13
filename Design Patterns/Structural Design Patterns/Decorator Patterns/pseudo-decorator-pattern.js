@@ -68,9 +68,6 @@ console.log(todoItem.name);
 console.log(todoItem.methods.summary());
 console.log(todoItem.methods.placeOrder());
 
-
-/*Todo Example #2*/
-
 /* Advantages*/
 //	Objects can be wrapped or "decorated", without worrying the base object is modified. This patterns also avoids us needthing a large number of subclasses.
 
