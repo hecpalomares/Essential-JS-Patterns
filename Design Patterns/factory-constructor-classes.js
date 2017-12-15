@@ -37,3 +37,8 @@ function factoryCar() {
 
 const car3 = factoryCar();
 console.log(car3.drive());
+
+// Factories are more flexible. Multiple design patterns fit the logic of it. 
+
+// Classes have conveient syntax, but leads users to Class Inheritance. Can't upgrade to Factory Functions,
+// since 'new' keywords do not work on Factories.
