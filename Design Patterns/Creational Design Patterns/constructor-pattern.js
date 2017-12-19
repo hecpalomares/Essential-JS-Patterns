@@ -1,8 +1,7 @@
 //	Three common ways to create an empty object
-let newObject = {};
-let newObjectSquare = Object.create( Object.prototype );
-let objectNumberThree = new Object();
-let objectNumberFour = new Object();
+let newObject = {}; // object literal
+let newObjectSquare = Object.create(Object.prototype); // Using the Object.create method
+let objectNumberThree = new Object(); // Using the object constructor
 
 //	Four ways in which keys and values are assigned to the object
 //	1. Dot syntax
@@ -69,3 +68,6 @@ var sandero = new Car( "Renault Sandero", 2015, 40000 );
 
 console.log(city.toString());
 console.log(sandero.toString());
+
+//  Javascript doesn't have classes, supports a special constructor that works with objects. Prefixing the invocation of a Constructor Function
+//  with the keyword 'new', instantiate a new object. Inside the new object the keyword 'this' reference to the newly created Object.

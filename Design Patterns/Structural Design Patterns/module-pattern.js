@@ -1,9 +1,10 @@
 /* Module Pattern */
-//	Provide both privante and public encapsulation. At JS used to emulate the concept of classes.
+//	Provide both private and public encapsulation. At JS used to emulate the concept of classes.
 //	Classes (include public/private methods and variables inside a single object)
 
-var myNameSpace = (function() {
-	var myPrivateVar, myPrivateMethod;
+// Example 1: general template
+let myNameSpace = (function() {
+	let myPrivateVar, myPrivateMethod;
 
 	//	A private counter variable
 	myPrivateVar = 0;
@@ -34,9 +35,11 @@ myNameSpace.myPublicFunction("Increment Counter");
 myNameSpace.myPublicFunction("Increment Counter");
 */
 
-// Privante functions and private variables can only be consumed inside our module. 
+// Private functions and private variables can only be consumed inside our module. 
 // As they aren't exposed to the rest of the page (only our exported API is), they're considered truly private.
 // Functions are declared and named, easier to show call stacks in a debugger to discover what functions are throwing exceptions.
+
+// Example 2: basket with private and public functions
 var basketModule = (function() {
 	// Private variables
 	let basket = [];
