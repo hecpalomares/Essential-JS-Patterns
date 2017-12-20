@@ -109,8 +109,8 @@ revealingModulePattern.sayWelcome("Ted");
 
 // Example 4: myPhotosCollection with function expressions
 /*
-  1st Step: The IIFE (line 121) creates a closure protecting my private variables _photos and methods getPhotosByTheme(), addPhotoNotDuplicated()
-  2nd Step: The return (line 136) reveals certain variables and methods returned in an object literal
+  1st step: The IIFE (line 121) creates a closure protecting my private variables _photos and methods getPhotosByTheme(), addPhotoNotDuplicated()
+  2nd step: The return (line 136) reveals certain variables and methods returned in an object literal
 */
 
 let myPhotosCollection = (function() {

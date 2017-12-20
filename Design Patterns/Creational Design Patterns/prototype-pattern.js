@@ -1,5 +1,5 @@
 //	Creates new objects, returns objects intializaed values copied from a prototype or a sample object.
-/*Example 1*/
+// Example 1
 let myCar = {
 	name: "Sonic Chevrolet",
 	drive: function() {
@@ -21,7 +21,7 @@ yourCar2.name = "Mazda 6";
 console.log(yourCar2.name);		// Mazda 6
 console.log(yourCar1.name);  	// Sonic Chevrolet
 
-/*Example 2*/
+// Example 2
 //	Clones objects given a prototype object
 function CustomerPrototype(proto) {
 	this.proto = proto;
@@ -86,3 +86,43 @@ console.log(myFavoriteBook.getMyOpinion());	// I loved this book!, not true
 
 let myWorstBook = new Book("Losing My Virginity", "Ricahrd Branson", "Autobiography", 9.99, "3 stars");
 console.log(myWorstBook.getMyOpinion());	// I loved this book!, not true
+
+// Example 4: Creating trees
+/*
+  1st step: Creating a base constructor, using es6 default parameters is recommended (line 95)
+  2nd step: Modify the prototype of the Tree 'Class' (it is a function, since classes are functions in JS) (line 102+)
+*/
+let Tree = function(type = "Pine", size = "medium", age = 4, price = 25.00) {
+	this.type = type;
+	this.size = size;
+	this.age = age;
+	this.price = price;
+}
+
+Tree.prototype = {
+	calculateAge: function() {
+		return `Your ${this.type.toLowerCase()} is ${this.age} years old`;
+	},
+	calculatePrice: function(discount = 0) {
+		if (discount !== 0) {
+			this.price = this.price * (discount/100);
+		}
+		return `Your total would be $${this.price.toFixed(2)}`;
+	},
+	changeSize: function(size) {
+		this.size = size;
+	}
+};
+
+
+let myBonsai = new Tree("Bonsai", "small", undefined, 40.00);		
+
+console.log(myBonsai); // { type: 'Bonsai', size: 'small', age: 4, price: 40 }
+console.log(myBonsai.calculateAge()); // Your bonsai is 4 years old
+console.log(myBonsai.calculatePrice()); //  Your total would be $40.00
+console.log(myBonsai.calculatePrice(50)); // Your total would be $20.00
+myBonsai.changeSize("medium");
+console.log(myBonsai);		// { type: 'Bonsai', size: 'medium', age: 4, price: 20 }
+
+let myPine = new Tree();
+console.log(myPine);
