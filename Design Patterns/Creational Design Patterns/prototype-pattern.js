@@ -87,7 +87,7 @@ console.log(myFavoriteBook.getMyOpinion());	// I loved this book!, not true
 let myWorstBook = new Book("Losing My Virginity", "Ricahrd Branson", "Autobiography", 9.99, "3 stars");
 console.log(myWorstBook.getMyOpinion());	// I loved this book!, not true
 
-// Example 4: Creating trees
+// Example 4: Creating Tree. Prototype as a object
 /*
   1st step: Creating a base constructor, using es6 default parameters is recommended (line 95)
   2nd step: Modify the prototype of the Tree 'Class' (it is a function, since classes are functions in JS) (line 102+)
@@ -126,3 +126,49 @@ console.log(myBonsai);		// { type: 'Bonsai', size: 'medium', age: 4, price: 20 }
 
 let myPine = new Tree();
 console.log(myPine);
+
+// Example 5: Creating Schools + revealing module Pattern. Prototype as a function returning an object
+let School = function(name, level, state, alumni) {
+	this.name = name;
+	this.level = level;
+	this.state = state;
+	this.alumni = alumni;
+}
+
+School.prototype = function() {
+	
+	let _getName = function() {
+		return `The name of this school is ${this.name}.`
+	};
+
+	let _getLevel = function() {
+		return `This maximum level of education for ${this.name} is ${this.level}.`
+	};
+
+	let _getState = function() {
+		return `This school is located at ${this.state}.`;
+	};
+
+	let _getAlumni = function() {
+		return `Number of alumni enrolled is ${this.alumni}.`;
+	};
+
+	let _increaseNumberAlumni = function() {
+		this.alumni++;
+	};
+
+	return {
+ 		getName: _getName,
+	 	getLevel: _getLevel,
+	 	getState: _getState,
+		getAlumni: _getAlumni,
+		addAlumni: _increaseNumberAlumni
+	};
+
+}();
+
+let mySchool = new School("Kennedy", "Primary School", "Nuevo Leon", 200);
+
+console.log(mySchool);
+mySchool.addAlumni();
+console.log(mySchool.getAlumni());

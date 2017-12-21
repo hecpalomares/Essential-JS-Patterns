@@ -112,4 +112,4 @@ console.log(basketModule.basket);
 
 /*A&D*/
 // Advantages: Cleaner code for developers from OO background. Private data only interacts inside the module.
-// Disadvantages: Mantain both public and private properties (variables and functions). Inability to create autoamted unit tests for private memembers.
+// Disadvantages: Mantain both public and private properties (variables and functions). Inability to create autoamted unit tests for private members.
