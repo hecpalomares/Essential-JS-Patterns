@@ -84,8 +84,6 @@
 	// Extend the controlling checkbox with the Subject Class
 	extend(controlCheckbox, new Subject());
 
-	debugger;
-
 	// Clicking the checkbox will trigger notificaions to its observers
 	controlCheckbox.onclick = function() {
 		controlCheckbox.notify(controlCheckbox.checked);
