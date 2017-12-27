@@ -1,4 +1,6 @@
-// Controller: Handles events and is the mediator between the view and the model.
+const assert = require('assert');
+
+/* Controller: Handles events and is the mediator between the view and the model. */
 
 // Controller Constructor
 let PenguinController = function(penguinView, penguinModel) {
@@ -43,7 +45,7 @@ PenguinController.prototype.showPenguin = function showPenguin(penguinModelData)
   this.penguinView.render(penguinViewModel);
 };
 
-// Unit Tests
+// Happy Path Unit Test
 let PenguinViewMock = function PenguinViewMock() {
 	this.calledRenderWith = null;
 };
@@ -56,7 +58,7 @@ let penguinViewMock = new PenguinViewMock();
 
 let controller = new PenguinController(penguinViewMock, null);
 
-var penguinModelDataMock = {
+let penguinModelDataMock = {
   name: 'Pingu',
   imageUrl: 'https://static.pexels.com/photos/86405/penguin-funny-blue-water-86405.jpeg',
   size: '5.0kg (m), 4.8kg (f)',
@@ -64,3 +66,11 @@ var penguinModelDataMock = {
   index: 2,
   count: 5
 };
+
+controller.showPenguin(penguinModelDataMock);
+
+assert.strictEqual(penguinViewMock.calledRenderWith.name, 'Pingu');
+assert.strictEqual(penguinViewMock.calledRenderWith.imageUrl, 'https://static.pexels.com/photos/86405/penguin-funny-blue-water-86405.jpeg');
+assert.strictEqual(penguinViewMock.calledRenderWith.size, '5.0kg (m), 4.8kg (f)');
+assert.strictEqual(penguinViewMock.calledRenderWith.previousIndex, 1);
+assert.strictEqual(penguinViewMock.calledRenderWith.nextIndex, 3);
