@@ -104,7 +104,14 @@ controller.initialize();
 
 controller.onClickGetPenguin({ currentTarget: { dataset: { penguinIndex: 0 } } });
 
-// Unit Test Controller
+
+/*Advantages
+1. Easier overall maintenance. When updates need to be made, it is clear if is a logic, data or view change.
+2. Decouple models and views. Easier to write straightforward unit test for business logic.
+3. Separation of roles, due to the modularity of the application simultaneously one developer can focus on core logic, while other foucs on user-interface.
+*/
+
+// Unit Test Controller, commenting the tests in order to html runs in Chrome
 /*{
 	let PenguinViewMock = function PenguinViewMock() {
 		this.calledRenderWith = null;
