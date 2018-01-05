@@ -8,7 +8,7 @@ function TaskView() {
 	}
 
 	let publicAPI = {
-		getHtml: function() {
+		getHTML: function() {
 			return html;
 		},
 		setModel: function(model) {

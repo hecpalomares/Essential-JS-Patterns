@@ -7,17 +7,14 @@
 	<script src="models.js"></script>
 	<script src="taskPresenter.js"></script>
 	<script src="taskView.js"></script>
+	<script src="listPresenter.js"></script>
+	<script src="listView.js"></script>
 </head>
 <body>
 	<script>
-		let model = new TaskModel("Task #1");
-		let task = new TaskPresenter(new TaskView());
-		
-		model.setText("Task #2");
-		task.setModel(model);
-		
-		$("body").append(task.getView().getHtml());
-	
+		//  instantiate this object and add it to the HTML
+		let list = new ListPresenter(new ListView());
+		$("body").append(list.getView().getHTML());
 	</script>
 </body>
 </html>
